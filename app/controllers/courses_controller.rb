@@ -4,6 +4,7 @@ class CoursesController < ApplicationController
   # GET /courses or /courses.json
   def index
     @courses = Course.all
+    @subjects = Subject.all
   end
 
   # GET /courses/1 or /courses/1.json
@@ -25,8 +26,8 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to course_url(@course), notice: "Course was successfully created." }
-        format.json { render :show, status: :created, location: @course }
+        format.html { redirect_to courses_url, notice: "Course was successfully created." }
+        format.json { render :index, status: :created, location: @course }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @course.errors, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to course_url(@course), notice: "Course was successfully updated." }
+        format.html { redirect_to courses_url, notice: "Course was successfully updated." }
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render :edit, status: :unprocessable_entity }

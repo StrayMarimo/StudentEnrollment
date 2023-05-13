@@ -12,21 +12,29 @@
   <% end %>
 
  <div class="field">
-    <%= form.label :subject_id, style: "display: block" %>
+    <%= form.label "Choose a subject: ", style: "display: inline" %>
     <%= collection_select(:course, :subject_id, Subject.all, :id, :name) %>
+ </div>
+
+  <div class="not-found">
+      <p><i>Subject not found? 
+        <span><%= link_to "Create now...", new_subject_path %></span>
+      </i></p>
   </div>
 
-  <div>
-    <%= form.label :student_id, style: "display: block" %>
-     <%= collection_select(:course, :student_id, Student.all, :id, :name) %>
+  <div class="field">
+    <%= form.label :student_id, style: "display: inline" %>
+    <%= collection_select(:course, :student_id, Student.all, :id, :name) %>
   </div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="not-found">
+    <p><i>Student not found? 
+      <span><%= link_to "Create now...", new_student_path %></span>
+    </i></p>
   </div>
 
-  <div>
-    <%= form.submit %>
+
+  <div style="margin: 10px;">
+    <%= form.submit "Enrol Student"%>
   </div>
 <% end %>

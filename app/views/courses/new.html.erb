@@ -1,9 +1,11 @@
-<h1>New course</h1>
+<div>
+  <%= link_to "Back to courses", courses_path %>
+</div>
+
+<h1>Enroll A Student to a Course</h1>
 
 <%= render "form", course: @course %>
 
 <br>
 
-<div>
-  <%= link_to "Back to courses", courses_path %>
-</div>
+
