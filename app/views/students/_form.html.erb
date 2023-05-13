@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
+  <div class="field">
+    <%= form.label :name, style: "display: inline" %>
     <%= form.text_field :name %>
   </div>
 
-  <div>
-    <%= form.label :year_level, style: "display: block" %>
+  <div class="field">
+    <%= form.label :year_level, style: "display: inline" %>
     <%= form.number_field :year_level %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.submit %>
   </div>
 <% end %>
