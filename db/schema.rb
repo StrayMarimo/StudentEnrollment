@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_064046) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_034329) do
   create_table "courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "subject_id", null: false
     t.bigint "student_id", null: false

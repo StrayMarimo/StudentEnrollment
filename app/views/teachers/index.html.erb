@@ -3,12 +3,20 @@
 <h1>Teachers</h1>
 
 <div id="teachers">
-  <% @teachers.each do |teacher| %>
-    <%= render teacher %>
-    <p>
-      <%= link_to "Show this teacher", teacher %>
-    </p>
-  <% end %>
+  <table>
+    <thead>
+      <th>Teacher Name</th>
+      <th>Department Name</th>
+    </thead>
+    <tbody>
+       <% @teachers.each do |teacher| %>
+       <tr>
+        <td> <%= link_to teacher.name, teacher %></td>
+        <td> <%= teacher.department_name%></td>
+       </tr>
+       <% end %>
+    </tbody>
+  </table>
 </div>
-
+<br>
 <%= link_to "New teacher", new_teacher_path %>

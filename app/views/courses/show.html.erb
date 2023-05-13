@@ -1,28 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<p>Section: <%=@course.subject.name%></p>
-
-<h4>List of Students Enrolled: </h4>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Level</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @courses.each do |course| %>
-    <tr>
-      <td> <%= course.student %></td>
-      <td> <%= course.student.year_level %></td>
-    </tr>
-   
-  <% end %>
-  </tbody>
-</table>
-<div>
-  <%= link_to "Edit this course", edit_course_path(@course) %> |
+<%= render @course %>
+<div class="field">
+  <%= link_to "Edit enrollment details", edit_course_path(@course) %> |
   <%= link_to "Back to courses", courses_path %>
 
-  <%= button_to "Destroy this course", @course, method: :delete %>
+  <div style="margin-top: 10px;">
+    <%= button_to "Unenrol student", @course, method: :delete %>
+  </div>
 </div>

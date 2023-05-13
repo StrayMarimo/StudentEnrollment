@@ -6,8 +6,8 @@
   <ul>
     <% @subjects.each do |subject| %>
     <li>
-      <b><%=subject.name%></b>
-        <table>
+      <b><%= link_to subject.name, subject%></b>
+        <table style="margin-top:5px;">
           <th>
             <tr>
               <td>Name of Student</td>
@@ -18,17 +18,27 @@
               <% @courses.each do |course| %>
               <% if course.subject_id == subject.id %>
               <tr>
-                <td>  <%= course.student.name %> </td>
-                  <td>  <%= course.student.year_level %> </td>
+                <td>  <%= link_to course.student.name, course %> </td>
+                <td>  <%= course.student.year_level %> </td>
               </tr>
               <% end %> 
               <% end %> 
+              <tr><td colspan="2">
+                 <i><%= link_to "Enroll a student in this course...", new_course_path %></i>
+              </td></tr>
           </tbody>
         </table>
-        <i><%= link_to "Enroll a student in this course...", new_course_path %></i>
     </li>
+    <br>
     <% end %> 
   </ul>
+
+  <div class="not-found">
+    <p><i>Course not found?  
+      <span><%= link_to "Create", new_subject_path %></span> 
+      a subject first.
+    </i></p>
+  </div>
 </div>
 
 
