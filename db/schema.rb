@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_033323) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_034329) do
+  create_table "courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "subject_id", null: false
+    t.bigint "student_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_courses_on_student_id"
+    t.index ["subject_id"], name: "index_courses_on_subject_id"
+  end
+
+  create_table "students", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.integer "year_level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.integer "unit"
@@ -27,5 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_033323) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "courses", "students"
+  add_foreign_key "courses", "subjects"
   add_foreign_key "subjects", "teachers"
 end
