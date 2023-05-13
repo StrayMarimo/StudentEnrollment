@@ -11,19 +11,24 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
+  <div class="field">
+    <%= form.label :name, style: "display: inline" %>
     <%= form.text_field :name %>
   </div>
 
-  <div>
-    <%= form.label :unit, style: "display: block" %>
+  <div class="field">
+    <%= form.label :unit, style: "display: inline" %>
     <%= form.number_field :unit %>
   </div>
 
   <div class="field">
-    <%= form.label :teacher_id, style: "display: block" %>
+    <%= form.label "Choose a teacher:", style: "display: inline" %>
     <%= collection_select(:subject, :teacher_id, Teacher.all, :id, :name) %>
+  </div>
+   <div class="not-found">
+    <p><i>Teacher not found? 
+      <span><%= link_to "Create now...", new_teacher_path %></span>
+    </i></p>
   </div>
 
   <div>
