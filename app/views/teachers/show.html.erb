@@ -2,9 +2,10 @@
 
 <%= render @teacher %>
 
-<div>
+<div class="field">
   <%= link_to "Edit this teacher", edit_teacher_path(@teacher) %> |
   <%= link_to "Back to teachers", teachers_path %>
-
+    <div style="margin-top: 10px;">
   <%= button_to "Destroy this teacher", @teacher, method: :delete %>
+  </div>
 </div>
